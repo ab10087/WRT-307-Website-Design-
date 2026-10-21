@@ -1,0 +1,106 @@
+/* Calm palette: soft lavender, sage, sky blue, blush, and cream.
+   Contrast checks: ink #2F3E4E on cream ≈ 10:1 | white on dusty blue #4A5D8A ≈ 6.5:1
+   Dusty blue links #4A5D8A on white ≈ 6.5:1 | ink on lavender button #B9A8E6 ≈ 5:1 */
+:root{
+  --ink:#2F3E4E; --blue:#4A5D8A; --blue-deep:#3B4F6B;
+  --cream:#FBF8F3; --lavender:#E4DDF4; --lav-strong:#B9A8E6;
+  --sage:#D9EFE0; --sky:#D6E9F5; --blush:#FBE3E8; --butter:#FDF3D3;
+  --purple-text:#5B4B9A;
+  --radius:26px; --max:68rem;
+  --shadow:0 6px 0 rgba(59,79,107,.12);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:100%}
+body{margin:0;font-family:"Nunito","Trebuchet MS","Segoe UI",Arial,sans-serif;font-size:1.125rem;line-height:1.75;color:var(--ink);background:var(--cream)}
+h1,h2,h3{font-family:"Quicksand","Nunito","Trebuchet MS",Arial,sans-serif;color:var(--blue-deep);line-height:1.25;margin:0 0 .5em;font-weight:700}
+h1{font-size:clamp(2rem,5vw,3.1rem)}
+h2{font-size:clamp(1.5rem,3.5vw,2.05rem)}
+h3{font-size:1.3rem}
+p{max-width:65ch;margin:0 0 1em}
+a{color:var(--blue);text-underline-offset:4px;text-decoration-thickness:2px}
+a:hover{color:var(--purple-text)}
+:focus-visible{outline:4px solid var(--blue-deep);outline-offset:3px;border-radius:8px}
+img{max-width:100%;height:auto;display:block}
+.wrap{width:min(100% - 2rem,var(--max));margin-inline:auto}
+
+.skip-link{position:absolute;left:-999px;top:0;background:var(--blue-deep);color:#fff;padding:.75rem 1rem;z-index:100;border-radius:0 0 12px 0}
+.skip-link:focus{left:0}
+
+/* Header + navigation */
+.site-header{background:var(--blue)}
+.site-header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;padding-block:.9rem}
+.brand{color:#fff;font:700 1.2rem "Quicksand","Nunito",Arial,sans-serif;text-decoration:none}
+.brand:hover{color:#fff;text-decoration:underline}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+nav a{display:block;color:#fff;text-decoration:none;padding:.6rem 1.1rem;border-radius:999px;font-weight:700;min-height:44px}
+nav a:hover{background:rgba(255,255,255,.2);color:#fff}
+nav a[aria-current="page"]{background:var(--lavender);color:var(--blue-deep)}
+.site-header :focus-visible{outline-color:#fff}
+
+/* Hero with soft wave edge */
+.hero{background:var(--lavender);padding-block:3.5rem 4.5rem;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:40px;
+  background:var(--cream);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V20C150 0 300 0 450 14s300 24 450 8 225-18 300-10v28z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V20C150 0 300 0 450 14s300 24 450 8 225-18 300-10v28z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.hero .wrap{display:grid;gap:2rem;align-items:center;grid-template-columns:1.2fr 1fr}
+.hero .lead{font-size:1.25rem}
+.hero img{border-radius:var(--radius);box-shadow:var(--shadow)}
+.btn{display:inline-block;background:var(--lav-strong);color:var(--ink);font-weight:800;padding:.85rem 1.6rem;border-radius:999px;text-decoration:none;min-height:44px;box-shadow:0 4px 0 var(--blue-deep);margin:0 .5rem .75rem 0;transition:transform .15s}
+.btn:hover{background:var(--blue);color:#fff;transform:translateY(2px);box-shadow:0 2px 0 var(--blue-deep)}
+.btn.alt{background:#fff;border:2px solid var(--blue-deep)}
+.btn.alt:hover{background:var(--blue)}
+
+main section{padding-block:3rem}
+.cards{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.card{border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow)}
+.card:nth-child(1){background:var(--sage)}
+.card:nth-child(2){background:var(--sky)}
+.card:nth-child(3){background:var(--blush)}
+.card h3{margin-top:0}
+.card p:last-child{margin-bottom:0}
+.band{background:var(--blue);color:#fff}
+.band h2{color:#fff}
+.band a{color:#E4DDF4}
+.band a:hover{color:#fff}
+.band :focus-visible{outline-color:#fff}
+
+/* Steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:1.75rem}
+.step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,16rem);gap:1.5rem;align-items:center;border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow)}
+.step:nth-child(4n+1){background:var(--sky)}
+.step:nth-child(4n+2){background:var(--sage)}
+.step:nth-child(4n+3){background:var(--blush)}
+.step:nth-child(4n){background:var(--butter)}
+.step:nth-child(even){grid-template-columns:minmax(0,16rem) minmax(0,1fr)}
+.step:nth-child(even) figure{order:-1}
+.step figure{margin:0}
+.step figure img{border-radius:22px;border:4px solid #fff}
+.badge{display:inline-block;background:#fff;color:var(--blue-deep);font:800 .95rem "Quicksand","Nunito",Arial,sans-serif;padding:.2rem .9rem;border-radius:999px;margin-bottom:.6rem}
+.step p:last-child{margin-bottom:0}
+
+/* Team */
+.team{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+.member{border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow)}
+.member:nth-child(4n+1){background:var(--sky)}
+.member:nth-child(4n+2){background:var(--sage)}
+.member:nth-child(4n+3){background:var(--blush)}
+.member:nth-child(4n){background:var(--butter)}
+.avatar{width:5rem;height:5rem;border-radius:50%;background:#fff;color:var(--blue-deep);border:4px solid var(--lav-strong);display:grid;place-items:center;font:700 1.7rem "Quicksand","Nunito",Arial,sans-serif;margin-bottom:1rem}
+.role{color:var(--purple-text);font:800 1rem "Quicksand","Nunito",Arial,sans-serif;margin-bottom:.75rem}
+.member a{color:var(--blue-deep)}
+
+.site-footer{background:var(--blue-deep);color:#fff;padding-block:2rem;font-size:1rem}
+.site-footer a{color:#E4DDF4}
+.site-footer a:hover{color:#fff}
+.site-footer :focus-visible{outline-color:#fff}
+.site-footer p{margin:.25rem 0}
+
+@media (max-width:48rem){
+  .hero .wrap,.step,.step:nth-child(even){grid-template-columns:1fr}
+  .step:nth-child(even) figure{order:0}
+  .step figure{max-width:18rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+.photo{width:100%;max-width:14rem;aspect-ratio:1;object-fit:cover;object-position:center 20%;border-radius:50%;border:4px solid var(--lav-strong);margin-bottom:1rem}
